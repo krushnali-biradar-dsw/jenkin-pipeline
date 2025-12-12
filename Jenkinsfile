@@ -9,9 +9,10 @@ pipeline {
               - name: kaniko
                 image: gcr.io/kaniko-project/executor:latest
                 command:
-                - sleep
+                - /bin/sh
                 args:
-                - 9999999
+                - -c
+                - sleep 9999999
                 volumeMounts:
                 - name: dockerfile-storage
                   mountPath: /workspace
